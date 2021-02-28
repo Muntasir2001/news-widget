@@ -1,13 +1,72 @@
-body {
+* {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+/* default */
+
+body {
+  background-color: #fafafa;
+  font-family: sans-serif;
+}
+
+a {
+  color: #000;
+  text-decoration: none;
+}
+
+/* widget body */
+.widget-body {
+  margin: 60px 200px;
+}
+
+.widget-body .widget-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 60px;
+}
+
+.widget-body .widget-header h1 {
+  color: #c86383;
+  border-bottom: 5px solid #c86383;
+}
+
+/* news component */
+.news {
+  border-bottom: 1px solid #989898;
+  padding-bottom: 15px;
+  margin-top: 30px;
+}
+
+.news a h2 {
+  padding-bottom: 10px;
+}
+
+.news .news-bottom {
+  display: flex;
+  align-items: center;
+  margin-top: 15px;
+}
+
+.news .news-bottom .tag {
+  margin-left: 15px;
+  padding: 5px 15px;
+  color: #fff;
+  background-color: #989898;
+  border-radius: 20px;
+}
+
+/* news show more button */
+.show-more-btn {
+  margin-top: 80px;
+}
+
+.show-more-btn button {
+  padding: 10px 20px;
+  font-size: 1.2rem;
+  color: #c86383;
+  border: 4px solid #c86383;
+  background-color: #fafafa;
+  font-weight: bold;
 }

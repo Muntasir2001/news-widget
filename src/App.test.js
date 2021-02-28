@@ -1,8 +1,32 @@
-import { render, screen } from '@testing-library/react';
+// import { render, screen } from '@testing-library/react'; 
+import { shallow } from 'enzyme';
 import App from './App';
+import News from './News';
 
-test('renders learn react link', () => {
-  render(<App />);
-  const linkElement = screen.getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
+describe('App', () => {
+  let appWrapper;
+
+  beforeAll(() => {
+    appWrapper = shallow(<App />);
+  })
+
+  it('Checks for div in App.js', () => {
+    expect(appWrapper.find('div').length).toBeGreaterThanOrEqual(1);
+  });
+
+  it('Checks for <News /> in <App />', () => {
+    appWrapper.find(News);
+  });
 });
+
+describe('News', () => {
+  let newsWrapper;
+
+  beforeAll(() => {
+    newsWrapper = shallow(<News />);
+  })
+
+  it('Checks for div in <News />', () => {
+    expect(newsWrapper.find('div').length).toBeGreaterThanOrEqual(1);
+  })
+})

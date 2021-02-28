@@ -1,25 +1,28 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import News from './News';
+import './index.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+const App = () => {
+
+   return (
+      <>
+         <div className="widget-body">
+            <header className="widget-header">
+               <h1>News</h1>
+               <select name="source" id="news-source">
+                  <option value="null" disabled selected hidden>Filter By Source</option>
+                  <option value="CNN">CNN</option>
+                  <option value="BBC">BBC</option>
+                  <option value="The Guardian">The Guardian </option>
+               </select>
+            </header>
+            <div className="widget-section">
+               <News />
+            </div>
+         </div>
+      </>
+   )
+
 }
 
 export default App;
