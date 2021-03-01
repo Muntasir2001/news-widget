@@ -1,39 +1,23 @@
 import React from 'react';
 
-const News = () => {
+const News = (props) => {
+   //extracting news source
+   const tag = Object.values(props.source);  
+
+   //formatting date
+   const date = props.publishedAt.split('T');
+
    return (
       <>
-         <div className="news">
-            <a href="#"><h2>The Trump Russia investigation closing</h2></a>
-            <div className="news-bottom">
-               <p className="date">28/09/2021</p>
-               <p className="tag">Independent</p>
-            </div>
-         </div>
-         <div className="news">
-            <a href="#"><h2>The Trump Russia investigation closing</h2></a>
-            <div className="news-bottom">
-               <p className="date">28/09/2021</p>
-               <p className="tag">Independent</p>
-            </div>
-         </div>
-         <div className="news">
-            <a href="#"><h2>The Trump Russia investigation closing</h2></a>
-            <div className="news-bottom">
-               <p className="date">28/09/2021</p>
-               <p className="tag">Independent</p>
-            </div>
-         </div>
-         <div className="news">
-            <a href="#"><h2>The Trump Russia investigation closing</h2></a>
-            <div className="news-bottom">
-               <p className="date">28/09/2021</p>
-               <p className="tag">Independent</p>
-            </div>
-         </div>
-         <div className="show-more-btn">
-            <button type="button">Show More</button>
-         </div>
+         <ul className="news-list">
+            <li className="news" key={props.id}>
+               <a href={props.url} target="-blank"><h2>{props.title}</h2></a>
+               <div className="news-bottom">
+                  <p className="date">{date[0]}</p>
+                  <p className="tag">{tag[1]}</p>
+               </div>
+            </li>
+         </ul>
       </>
    )
 }

@@ -1,5 +1,5 @@
-// import { render, screen } from '@testing-library/react'; 
-import { shallow } from 'enzyme';
+import { render, screen } from '@testing-library/react'; 
+import { shallow, mount } from 'enzyme';
 import App from './App';
 import News from './News';
 
@@ -11,6 +11,7 @@ describe('App', () => {
   })
 
   it('Checks for div in App.js', () => {
+
     expect(appWrapper.find('div').length).toBeGreaterThanOrEqual(1);
   });
 
@@ -28,5 +29,9 @@ describe('News', () => {
 
   it('Checks for div in <News />', () => {
     expect(newsWrapper.find('div').length).toBeGreaterThanOrEqual(1);
-  })
-})
+  });
+
+  it('Check for number of news on frontend', () => {
+    expect(newsWrapper.find(".news")).toHaveLength(5);
+  });
+});

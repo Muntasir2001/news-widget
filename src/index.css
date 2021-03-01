@@ -11,6 +11,10 @@ body {
   font-family: sans-serif;
 }
 
+ul {
+  list-style: none;
+}
+
 a {
   color: #000;
   text-decoration: none;
@@ -30,6 +34,17 @@ a {
 .widget-body .widget-header h1 {
   color: #c86383;
   border-bottom: 5px solid #c86383;
+}
+
+.widget-body .widget-header #news-filter {
+  padding: 1px 15px;
+  border: 3px solid #989898;
+  border-radius: 5px;
+  color: #989898;
+}
+
+.widget-body .widget-header #news-filter option {
+  color: #000;
 }
 
 /* news component */
