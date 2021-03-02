@@ -9,7 +9,7 @@ const App = () => {
    const [counter, setCounter] = useState(0);
 
    const getNews = async() => {
-      const res = await fetch('https://newsapi.org/v2/top-headlines?country=gb&apiKey=a1587530f84d42d2a9cc34a6b790a95d');
+      const res = await fetch('https://newsapi.org/v2/top-headlines?country=gb&apiKey=78b727643ffb437bb2545980643628b4');
       const news = await res.json();
       setNews(news.articles);
       setCounter(counter + 1);
@@ -32,10 +32,10 @@ const App = () => {
    const setFilterItems = () => {
       let tempItemList = [];
       setNewsSrc((newsSource) => {
-         news.map(singleSource => {
+         news.forEach(singleSource => {
             const {source} = singleSource;
    
-            if (tempItemList.indexOf(source.name) == -1) {
+            if (tempItemList.indexOf(source.name) === -1) {
                tempItemList.push(source.name);
             }
          });
@@ -63,9 +63,7 @@ const App = () => {
                   <option value="null" defaultValue="Filter by source">Filter By Source</option>
                   {
                      newsSrc.map(singleSource => {
-                       {
                         return (<option className="news-src" value={singleSource}>{singleSource}</option>)
-                        }
                      })
                   }
                </select>
