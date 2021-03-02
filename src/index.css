@@ -36,6 +36,12 @@ a {
   border-bottom: 5px solid #c86383;
 }
 
+/* news filter option */
+.widget-body .widget-header .news-filter {
+  width: 12rem;
+}
+
+/* for old filter option */
 .widget-body .widget-header #news-filter {
   padding: 1px 15px;
   border: 3px solid #989898;
@@ -46,6 +52,7 @@ a {
 .widget-body .widget-header #news-filter option {
   color: #000;
 }
+/* #####end of old filter option##### */
 
 /* news component */
 .news {
@@ -54,8 +61,19 @@ a {
   margin-top: 30px;
 }
 
+.news a {
+  display: inline-block;
+  text-overflow: ellipsis;
+  max-width: 55rem;
+}
+
 .news a h2 {
+  display: inline-block;
   padding-bottom: 10px;
+  text-overflow: ellipsis;
+  max-width: 70rem;
+  overflow: hidden;
+  white-space: nowrap;
 }
 
 .news .news-bottom {
