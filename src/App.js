@@ -44,7 +44,7 @@ const App = () => {
             return tempItemList;
          });
       };
-
+      console.log(counter);
       if (counter === 1) {
          setFilterItems();
       }
