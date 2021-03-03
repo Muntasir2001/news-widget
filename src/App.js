@@ -70,7 +70,7 @@ const App = () => {
                   <option className="news-src" value={singleSource}>
                      {singleSource}
                   </option>
-               );
+                  );
                })}
             </select>
          </header>
