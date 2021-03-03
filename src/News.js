@@ -1,14 +1,6 @@
 import React from 'react';
 
 const News = (props) => {
-   // const tag = Object.values(props.source);  
-
-   //testing
-   // console.log(tag);
-
-   //formatting date
-   // const date = props.publishedAt.split('T');
-
    return (
       <>
          <ul className="news-list">

@@ -86,7 +86,6 @@ const App = () => {
                const date = publishedAt.split('T');
 
                const tag = Object.values(source);
-               console.log(tag[1]);
 
                return (
                <News
