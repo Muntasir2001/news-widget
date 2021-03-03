@@ -7,13 +7,6 @@ const App = () => {
    const [noOfNews, setNoOfNews] = useState(5);
    const [newsSrc, setNewsSrc] = useState([]);
    const [counter, setCounter] = useState(0);
-
-   const getNews = async() => {
-      const res = await fetch('https://newsapi.org/v2/top-headlines?country=gb&apiKey=78b727643ffb437bb2545980643628b4');
-      const news = await res.json();
-      setNews(news.articles);
-      setCounter(counter + 1);
-   }
    
    const getMoreNews = () => {
       setNoOfNews(noOfNews + 5);
@@ -28,30 +21,34 @@ const App = () => {
       });
    }
 
-   //function for setting news source in filter list
-   const setFilterItems = () => {
-      let tempItemList = [];
-      setNewsSrc((newsSource) => {
-         news.forEach(singleSource => {
-            const {source} = singleSource;
-   
-            if (tempItemList.indexOf(source.name) === -1) {
-               tempItemList.push(source.name);
-            }
-         });
-
-         return tempItemList;
-      });
-   };
-
    useEffect(() => {
+       const getNews = async() => {
+         const res = await fetch('https://newsapi.org/v2/top-headlines?country=gb&apiKey=78b727643ffb437bb2545980643628b4');
+         const news = await res.json();
+         setNews(news.articles);
+         setCounter(counter + 1);
+      }
+      getNews();
+
+      const setFilterItems = () => {
+      let tempItemList = [];
+         setNewsSrc(() => {
+            news.forEach(singleSource => {
+               const {source} = singleSource;
+      
+               if (tempItemList.indexOf(source.name) === -1) {
+                  tempItemList.push(source.name);
+               }
+            });
+
+            return tempItemList;
+         });
+      };
+
       if (counter === 1) {
          setFilterItems();
       }
-   }, [counter]);
-
-   useEffect(() => {
-      getNews();
+      // eslint-disable-next-line react-hooks/exhaustive-deps
    }, [noOfNews]);
 
    return (
@@ -60,7 +57,7 @@ const App = () => {
             <header className="widget-header">
                <h1>News</h1>
                <select name="source" id="news-filter" defaultValue="Filter By Source" placeholder="Filter by source" onChange={filterNews}>
-                  <option value="null" defaultValue="Filter by source">Filter By Source</option>
+                  <option value="Filter by Source">Filter By Source</option>
                   {
                      newsSrc.map(singleSource => {
                         return (<option className="news-src" value={singleSource}>{singleSource}</option>)

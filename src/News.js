@@ -1,7 +1,6 @@
 import React from 'react';
 
 const News = (props) => {
-   //extracting news source
    const tag = Object.values(props.source);  
 
    //formatting date

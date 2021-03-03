@@ -103,3 +103,7 @@ a {
   background-color: #fafafa;
   font-weight: bold;
 }
+
+.show-more-btn button:hover {
+  cursor: pointer;
+}
