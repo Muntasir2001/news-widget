@@ -3,7 +3,8 @@ import News from "./News";
 import "./index.css";
 
 const NEWS_COUNTER = 5;
-const API_URL = "https://newsapi.org/v2/top-headlines?country=gb&apiKey=78b727643ffb437bb2545980643628b4";
+// const API_URL = "https://newsapi.org/v2/top-headlines?country=gb&apiKey=78b727643ffb437bb2545980643628b4";
+const API_URL = "https://run.mocky.io/v3/eb8b1494-46dc-4d02-8f14-670d918210e7";
 
 const App = () => {
    const [news, setNews] = useState([]);
