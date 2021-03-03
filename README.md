@@ -11,5 +11,7 @@ UI creation done.
 Get data from the news API and populate them into the browser
 
 # Website link
+https://news-widget.netlify.app/ 
 
-Coming soon :)
+#### Note
+I have created mock API as News API does not work when the website is published online
