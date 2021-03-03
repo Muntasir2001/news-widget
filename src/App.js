@@ -3,8 +3,8 @@ import News from "./News";
 import "./index.css";
 
 const NEWS_COUNTER = 5;
-// const API_URL = "https://newsapi.org/v2/top-headlines?country=gb&apiKey=78b727643ffb437bb2545980643628b4";
-const API_URL = "https://run.mocky.io/v3/eb8b1494-46dc-4d02-8f14-670d918210e7";
+// const API_URL = "https://newsapi.org/v2/top-headlines?country=gb&apiKey=78b727643ffb437bb2545980643628b4"; //News API
+const API_URL = "https://run.mocky.io/v3/eb8b1494-46dc-4d02-8f14-670d918210e7"; // Mock API
 
 const App = () => {
    const [news, setNews] = useState([]);
@@ -17,12 +17,18 @@ const App = () => {
 
    const filterNews = (e) => {
       const filterValue = e.target.value;
-      getNews()
-         .then(() =>
-            setNews((allNews) => {
-            return allNews.filter(eachNews => eachNews.source.name === filterValue);
-            })
-         );
+
+      if (e.target.value !== 'Filter by Source') {
+         getNews()
+            .then(() =>
+               setNews((allNews) => {
+               return allNews.filter(eachNews => eachNews.source.name === filterValue);
+               })
+            );
+      } else {
+         getNews()
+            .then((news) => setNews(news))
+      }
    };
 
    const getNews = async () => {
@@ -61,11 +67,9 @@ const App = () => {
             <select
                name="source"
                id="news-filter"
-               defaultValue="Filter By Source"
-               placeholder="Filter by source"
                onChange={filterNews}
             >
-               <option value="Filter by Source">Filter By Source</option>
+               <option value="Filter by Source">Filter by Source</option>
                {newsSrc.map((singleSource) => {
                return (
                   <option className="news-src" value={singleSource}>
@@ -79,11 +83,16 @@ const App = () => {
             {news.slice(0, noOfNews).map((singleNews, index) => {
                const { title, publishedAt, source, url } = singleNews;
 
+               const date = publishedAt.split('T');
+
+               const tag = Object.values(source);
+               console.log(tag[1]);
+
                return (
                <News
                   title={title}
-                  publishedAt={publishedAt}
-                  source={source}
+                  publishedAt={date[0]}
+                  source={tag[1]}
                   url={url}
                   id={index}
                />

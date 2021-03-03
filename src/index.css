@@ -4,7 +4,7 @@
   box-sizing: border-box;
 }
 
-/* default */
+/* default config */
 
 body {
   background-color: #fafafa;
@@ -18,6 +18,16 @@ ul {
 a {
   color: #000;
   text-decoration: none;
+}
+
+/* design for button in indexjs */
+.button {
+  padding: 5px 10px;
+  font-size: 1.2rem;
+  color: #c86383;
+  border: 4px solid #c86383;
+  background-color: #fafafa;
+  font-weight: bold;
 }
 
 /* widget body */

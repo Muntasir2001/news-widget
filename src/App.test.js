@@ -31,7 +31,7 @@ describe('News', () => {
     expect(newsWrapper.find('div').length).toBeGreaterThanOrEqual(1);
   });
 
-  it('Check for number of news on frontend', () => {
-    expect(newsWrapper.find(".news")).toHaveLength(5);
+  it('Check whether li is getting rendered from <News /> ', () => {
+    expect(newsWrapper.find("li")).toHaveLength(1);
   });
 });
