@@ -4,11 +4,11 @@ It is a News Widget App
 
 # Status
 
-UI creation done.
+App creating complete
 
 # Next step
 
-Get data from the news API and populate them into the browser
+Make it responsive
 
 # Website link
 https://news-widget.netlify.app/ 
